@@ -64,7 +64,3 @@ class Map(object):
         buffer = StringIO()
         result = img.imsave(buffer, out, format='png')
         return buffer.getvalue()
-
-mygraph=Greengraph('New York','Chicago')
-data = mygraph.green_between(20)
-plt.plot(data)

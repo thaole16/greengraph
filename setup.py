@@ -6,4 +6,6 @@ setup(
     packages = find_packages(exclude=['*test']),
     scripts = ['scripts/graph'],
     install_requires = ['argparse']
+	description= "Generates a rough graph of the amount of greenery between two locations"
+	license = "MIT"
 )

@@ -30,3 +30,9 @@ def test_location_sequence():
     sequence = mygraph.location_sequence((0, 0), (0, 1), 2)
     expected = [[0., 0.], [0., 1.]]
     assert (sequence == expected).all()
+
+def test_green_between():
+    mygraph = Greengraph('New York', 'Chicago')
+    datapts = mygraph.green_between(2)
+    expected = [60300, 28125]
+    assert datapts == expected

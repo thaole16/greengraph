@@ -2,6 +2,7 @@ import numpy as np
 import geopy
 from StringIO import StringIO
 from matplotlib import image as img
+import requests
 
 
 class Greengraph(object):

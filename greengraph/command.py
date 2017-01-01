@@ -10,7 +10,7 @@ def process():
     parser.add_argument('--end', help="End Location")
     parser.add_argument('--steps', help="Steps inbetween")
     parser.add_argument('--imageout', help="File name for output figure (PNG)")
-    parser.add_argument('--dataout', help="File name for data output (list of numbers of green pixels)")
+    parser.add_argument('--dataout', help="File name for data output (list of numbers of green pixels) (CSV)")
 
     arguments= parser.parse_args()
 
@@ -26,7 +26,6 @@ def process():
     plt.ylabel('Number of green pixels')
     plt.xlabel('Steps in-between')
     plt.plot(data)
-    #plt.show()
     plt.savefig(arguments.imageout)
 
 

@@ -20,3 +20,13 @@ def test_geolocate():
     assert type(coords) == tuple
     assert isclose(coords[0],40.7127837)
     assert isclose(coords[1], -74.0059413)
+
+def test_location_sequence():
+    mygraph = Greengraph('New York', 'Chicago')
+    sequence=mygraph.location_sequence((0, 0), (1, 1), 2)
+    expected = [[ 0.,  0.],[ 1.,  1.]]
+    assert (sequence==expected).all()
+
+    sequence = mygraph.location_sequence((0, 0), (0, 1), 2)
+    expected = [[0., 0.], [0., 1.]]
+    assert (sequence == expected).all()

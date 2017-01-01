@@ -17,3 +17,7 @@ def test_green():
     greenar = newyork.green(1.1)
     expected = [[False, False],[False, False]]
     assert (greenar==expected).all()
+
+def test_count_green():
+    newyork = Map(40.7127837, -74.0059413, size=(2, 2));
+    assert newyork.count_green()==0

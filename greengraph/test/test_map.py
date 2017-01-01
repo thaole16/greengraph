@@ -12,3 +12,8 @@ def test_Map_init():
     assert newyork.image == expectedimage
     assert np.allclose(newyork.pixels,expectedpixels)
 
+def test_green():
+    newyork = Map(40.7127837, -74.0059413, size=(2, 2))
+    greenar = newyork.green(1.1)
+    expected = [[False, False],[False, False]]
+    assert (greenar==expected).all()

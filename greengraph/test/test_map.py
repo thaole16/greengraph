@@ -46,7 +46,7 @@ def test_green(newyork):
 
 def test_count_green(newyork):
     with patch.object(newyork,'green') as MockClass:
-        MockClass.return_value =  [[False, False], [False, False]]
+        MockClass.return_value =[[False, False], [False, False]]
         assert newyork.count_green() == 0
 
 

@@ -1,8 +1,8 @@
 import pytest
-from greengraph.greengraph import Greengraph
+from greengraph.greengraph import Greengraph, Map
 from mock import patch, Mock
 import geopy
-
+import requests
 
 # https://www.python.org/dev/peps/pep-0485/#proposed-implementation
 def isclose(a, b, rel_tol=1e-09, abs_tol=0.0):
@@ -44,6 +44,9 @@ def test_location_sequence(graphobj):
 
 
 def test_green_between(graphobj):
-    datapts = graphobj.green_between(2)
-    expected = [60300, 28125]
-    assert datapts == expected
+    with patch.object(graphobj,'location_sequence') as MockClass: #mock a function call
+        MockClass.return_value =[[0., 0.], [1., 1.]]
+        with patch.object(Map,'count_green') as MockMap: #mock the Map (API hidden) call
+            MockMap.return_value = 0
+            datapts = graphobj.green_between(2)
+            assert datapts==[0,0]

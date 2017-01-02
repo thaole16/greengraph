@@ -1,7 +1,9 @@
 from greengraph.greengraph import Map
 import numpy as np
 import pytest
-
+from mock import patch
+from mock import Mock
+import requests
 
 # https://www.python.org/dev/peps/pep-0485/#proposed-implementation
 def isclose(a, b, rel_tol=1e-09, abs_tol=0.0):
@@ -12,6 +14,23 @@ def isclose(a, b, rel_tol=1e-09, abs_tol=0.0):
 def newyork():
     return Map(40.7127837, -74.0059413, size=(2, 2))
 
+def test_Map_init2():
+    with patch.object(requests, 'get') as mock_get:
+        expectedimage = b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00\x02\x00\x00\x00\x02\x04\x03\x00\x00\x00\x80\x98\x10\x17\x00\x00\x00\x0fPLTETPD``Td`Thh\\\xff\xff\xff\x13\xd3\x10z\x00\x00\x00\x01bKGD\x04\x8fh\xd9Q\x00\x00\x00\x0cIDAT\x08\xd7c0`\x10\x02\x00\x00\xa6\x00C\xb6\xe8\xbe\xee\x00\x00\x00\x00IEND\xaeB`\x82'
+        mock_get.return_value = mock_response = Mock()
+        mock_response.content = expectedimage
+        default_map = Map(40.7127837, -74.0059413,size=(2,2))
+        mock_get.assert_called_with(
+            "http://maps.googleapis.com/maps/api/staticmap?",
+            params={
+                'center': '40.7127837,-74.0059413',
+                'zoom': 10,
+                'maptype': 'satellite',
+                'sensor': 'false',
+                'size': '2x2',
+                'style': 'feature:all|element:labels|visibility:off',
+            }
+        )
 
 def test_Map_init(newyork):
     expectedimage = b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00\x02\x00\x00\x00\x02\x04\x03\x00\x00\x00\x80\x98\x10\x17\x00\x00\x00\x0fPLTETPD``Td`Thh\\\xff\xff\xff\x13\xd3\x10z\x00\x00\x00\x01bKGD\x04\x8fh\xd9Q\x00\x00\x00\x0cIDAT\x08\xd7c0`\x10\x02\x00\x00\xa6\x00C\xb6\xe8\xbe\xee\x00\x00\x00\x00IEND\xaeB`\x82'

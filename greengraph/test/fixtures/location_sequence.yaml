@@ -1,0 +1,21 @@
+- start: !!python/tuple [0, 0]
+  end: !!python/tuple [1, 1]
+  steps: 2
+  error: false
+  expected: [[0., 0.], [1., 1.]]
+- start:  !!python/tuple [0, 0]
+  end:  !!python/tuple [0, 1]
+  steps: 2
+  error: false
+  expected:  [[0., 0.], [0., 1.]]
+- start:  !!python/tuple [0, 0]
+  end:  !!python/tuple [0, -1]
+  steps: 2
+  error: false
+  expected:  [[0., 0.], [0., -1.]]
+- start:  !!python/tuple [0, 0]
+  end:  !!python/tuple [0, 1]
+  steps: -2
+  error: true
+  expected: Null
+

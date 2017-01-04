@@ -3,6 +3,8 @@ from greengraph.greengraph import Greengraph, Map
 from mock import patch, Mock
 import geopy
 import requests
+import yaml
+import os
 
 # https://www.python.org/dev/peps/pep-0485/#proposed-implementation
 def isclose(a, b, rel_tol=1e-09, abs_tol=0.0):
@@ -34,14 +36,18 @@ def test_geolocate(graphobj):
 
 
 def test_location_sequence(graphobj):
-    sequence = graphobj.location_sequence((0, 0), (1, 1), 2)
-    expected = [[0., 0.], [1., 1.]]
-    assert (sequence == expected).all()
-
-    sequence = graphobj.location_sequence((0, 0), (0, 1), 2)
-    expected = [[0., 0.], [0., 1.]]
-    assert (sequence == expected).all()
-
+    with open(os.path.join(os.path.dirname(__file__),
+                           'fixtures', 'location_sequence.yaml')) as fixtures_file:
+        fixtures = yaml.load(fixtures_file)
+        print(fixtures)
+        for fixture in fixtures:
+            if (fixture['error']==False):
+                sequence =  graphobj.location_sequence(fixture['start'],fixture['end'],fixture['steps'])
+                expected = fixture['expected']
+                assert (sequence == expected).all()
+            elif (fixture['error']==True):
+                with pytest.raises(ValueError):
+                    graphobj.location_sequence(fixture['start'],fixture['end'],fixture['steps'])
 
 def test_green_between(graphobj):
     with patch.object(graphobj,'location_sequence') as MockClass: #mock a function call

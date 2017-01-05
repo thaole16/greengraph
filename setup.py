@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 setup(
     name="Greengraph",
 
-    version="0.1.1",
+    version="1.0.0",
 
     description="Generates a rough graph of the amount of greenery between two locations",
     long_description=open('README.md').read(),

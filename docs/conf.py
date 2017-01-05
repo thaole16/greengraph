@@ -31,7 +31,7 @@ sys.path.insert(0,os.path.abspath(os.path.join(os.path.dirname(__file__),os.pard
 # ones.
 extensions = ['sphinx.ext.autodoc',
     'sphinx.ext.mathjax',
-    'sphinx.ext.githubpages']
+    'sphinx.ext.githubpages',]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -152,6 +152,3 @@ texinfo_documents = [
      author, 'Greengraph', 'One line description of project.',
      'Miscellaneous'),
 ]
-
-
-

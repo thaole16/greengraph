@@ -18,7 +18,7 @@ Typical usage would look like this:
 
     #!/usr/bin/env python
 
-    from greengraph import Greengraph, Map
+    from greengraph.greengraph import Greengraph, Map
     from matplotlib import pyplot as plt
 
     mygraph=Greengraph('New York','Chicago')

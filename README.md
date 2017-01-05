@@ -7,8 +7,10 @@ Greengraph generates a graph of the porportion of green pixels in a series of sa
 to sample in-between. Whether a point is green or not is determined by whether it is "more green" than it is red or
 blue.
 
-The greengraph.py code is taken from the appendix of the MPHYG001 First Continous Assessment pdf file, which in turn
-comes from https://github.com/UCL/rsd-engineeringcourse/blob/master/ch01data/110Capstone.ipynb
+The greengraph.py code is taken from the appendix of the
+[MPHYG001 First Continous Assessment.pdf](https://github.com/UCL/rsd-engineeringcourse/blob/master/ch98rubrics/Assessment1.pdf)
+, which in turn comes from
+[UCL Research Software Engineering course](https://github.com/UCL/rsd-engineeringcourse/blob/master/ch01data/110Capstone.ipynb)
 
 Installation Instructions
 =========================

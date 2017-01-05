@@ -1,4 +1,5 @@
 - name: 'New York'
+  fullname: 'New York, NY, USA'
   lat: 40.7127837
   long: -74.0059413
   sizesquare: 2

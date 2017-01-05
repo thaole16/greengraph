@@ -8,9 +8,10 @@ setup(
     description="Generates a rough graph of the amount of greenery between two locations",
     long_description=open('README.md').read(),
 
-    url='https://github.com/UCL/rsd-engineeringcourse',
+    url='https://github.com/thaole16/greengraph',
 
     author='MPHYG001, Thao Le',
+    author_email='thao.le.16@ucl.ac.uk',
 
     packages=find_packages(exclude=['*test','docs']),
 

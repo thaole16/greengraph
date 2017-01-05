@@ -10,6 +10,12 @@ blue.
 The greengraph.py code is taken from the appendix of the MPHYG001 First Continous Assessment pdf file, which in turn
 comes from https://github.com/UCL/rsd-engineeringcourse/blob/master/ch01data/110Capstone.ipynb
 
+Installation Instructions
+=========================
+
+To install via pip:
+    pip install git+https://github.com/thaole16/greengraph.git
+
 
 Typical Usage
 =============

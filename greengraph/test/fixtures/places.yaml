@@ -6,4 +6,5 @@
   image: newyork2x2.png
   green: [[False, False], [False, False]]
   countgreen: 0
-  greenimg: [[[0,0,0],[0,0,0]],[[0,0,0],[0,0,0]]] #all black because there is no green
+  greenRGB: [[[0,0,0],[0,0,0]],[[0,0,0],[0,0,0]]] #all black because there is no green
+  greenimage: newyork2x2green.png

@@ -14,8 +14,10 @@ Installation Instructions
 =========================
 
 To install via pip:
+
     pip install git+https://github.com/thaole16/greengraph.git
 
+Otherwise, you can download [Greengraph](https://github.com/thaole16/greengraph/archive/master.zip)
 
 Typical Usage
 =============

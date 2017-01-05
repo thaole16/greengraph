@@ -14,19 +14,26 @@ def process():
 
     arguments= parser.parse_args()
 
-    mygraph = Greengraph(arguments.start, arguments.end)
-    data = mygraph.green_between(arguments.steps)
+    if arguments.start and arguments.end and arguments.steps:
+        mygraph = Greengraph(arguments.start, arguments.end)
+        data = mygraph.green_between(arguments.steps)
+    else:
+        print("Need start, end, and steps inputs")
+        exit()
 
-    with open(arguments.dataout, "w") as outfile:
-        writer = csv.writer(outfile, lineterminator='\n')
-        for num in data:
-            writer.writerow([num])
+    if arguments.imageout:
+        plt.title("Number of green pixels between " + arguments.start +" and " + arguments.end)
+        plt.ylabel('Number of green pixels')
+        plt.xlabel('Steps in-between')
+        plt.plot(data)
+        plt.savefig(arguments.imageout)
 
-    plt.title("Number of green pixels between " + arguments.start +" and " + arguments.end)
-    plt.ylabel('Number of green pixels')
-    plt.xlabel('Steps in-between')
-    plt.plot(data)
-    plt.savefig(arguments.imageout)
+    if arguments.dataout:
+        with open(arguments.dataout, "w") as outfile:
+            writer = csv.writer(outfile, lineterminator='\n')
+            for num in data:
+                writer.writerow([num])
+
 
 
 if __name__ == "__main__":

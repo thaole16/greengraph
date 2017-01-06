@@ -16,7 +16,7 @@ def isclose(a, b, rel_tol=1e-09, abs_tol=0.0):
 @pytest.fixture(scope="module")
 def newyork():
     placesfile = yaml.load(open(os.path.join(os.path.dirname(__file__),'fixtures', 'places.yaml')))
-    newyork = placesfile[0]
+    newyork = placesfile['New York']
     with patch.object(requests, 'get') as mock_get:
         expectedimage = file(os.path.join(os.path.dirname(__file__),'fixtures',newyork['image']),'rb').read()
         mock_get.return_value = mock_response = Mock()
@@ -40,7 +40,7 @@ def test_Map_init(newyork):
 
 def test_green(newyork):
     placesfile = yaml.load(open(os.path.join(os.path.dirname(__file__), 'fixtures', 'places.yaml')))
-    newyorkexpected = placesfile[0]
+    newyorkexpected = placesfile['New York']
     greenar = newyork.green(1.1)
     expected = newyorkexpected['green']
     assert (greenar == expected).all()
@@ -49,7 +49,7 @@ def test_green(newyork):
 def test_count_green(newyork):
     with patch.object(newyork,'green') as MockClass:
         placesfile = yaml.load(open(os.path.join(os.path.dirname(__file__), 'fixtures', 'places.yaml')))
-        newyorkexpected = placesfile[0]
+        newyorkexpected = placesfile['New York']
         MockClass.return_value = newyorkexpected['green']
         assert newyork.count_green() == newyorkexpected['countgreen']
 

@@ -19,7 +19,7 @@ def graphobj():
 def graphobjexpected():
     with open(os.path.join(os.path.dirname(__file__), 'fixtures', 'places.yaml')) as placesfixtures:
         placesfile = yaml.load(placesfixtures)
-        return placesfile[0]
+        return placesfile['New York']
 
 @pytest.fixture(scope="module")
 def geocodeexpected(graphobjexpected):

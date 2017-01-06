@@ -1,10 +1,24 @@
-- name: 'New York'
-  fullname: 'New York, NY, USA'
-  lat: 40.7127837
-  long: -74.0059413
-  sizesquare: 2
-  image: newyork2x2.png
-  green: [[False, False], [False, False]]
-  countgreen: 0
-  greenRGB: [[[0,0,0],[0,0,0]],[[0,0,0],[0,0,0]]] #all black because there is no green
-  greenimage: newyork2x2green.png
+'New York':
+    name: 'New York'
+    fullname: 'New York, NY, USA'
+    lat: 40.7127837
+    long: -74.0059413
+    sizesquare: 2
+    image: newyork2x2.png
+    green: [[False, False], [False, False]]
+    countgreen: 0
+    greenRGB: [[[0,0,0],[0,0,0]],[[0,0,0],[0,0,0]]] #all black because there is no green
+    threshold: 1.1
+    greenimage: newyork2x2green.png
+'Fake':
+    name: 'Fake Place'
+    fullname: 'Fake Place, XXX'
+    lat: 0.00
+    long: 0.00
+    sizesquare: 2
+    image: fake2x2.png
+    green: [[True, True],[True,True]]
+    countgreen: 4
+    greenRGB: [[[0,1,0],[0,1,0]],[[0,1,0],[0,1,0]]] #aall green
+    threshold: 1.0
+    greenimage: fake2x2green.png

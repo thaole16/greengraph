@@ -15,8 +15,6 @@ setup(
 
     packages=find_packages(exclude=['*test','docs']),
 
-    scripts=['scripts/graph'],
-
     entry_points={'console_scripts': ['greengraph=greengraph.command:process']},
 
     install_requires=['argparse','numpy','geopy','matplotlib','requests'],

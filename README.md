@@ -15,7 +15,7 @@ The greengraph.py code is taken from the appendix of the
 Requirements
 =========================
 
-This package runs/has been tested on on Python 2.7
+This package runs/has been tested on Python 2.7
 
 Installation Instructions
 =========================

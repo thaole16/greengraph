@@ -6,11 +6,6 @@ import requests
 import yaml
 import os
 
-# https://www.python.org/dev/peps/pep-0485/#proposed-implementation
-def isclose(a, b, rel_tol=1e-09, abs_tol=0.0):
-    return abs(a - b) <= max(rel_tol * max(abs(a), abs(b)), abs_tol)
-
-
 @pytest.fixture(scope="module")
 def graphobj():
     return Greengraph('New York', 'Chicago')
@@ -43,8 +38,8 @@ def test_geolocate(graphobj,graphobjexpected,geocodeexpected):
         )
         assert coords
         assert type(coords) == tuple
-        assert isclose(coords[0], graphobjexpected['lat'])
-        assert isclose(coords[1], graphobjexpected['long'])
+        assert pytest.approx(coords[0])== graphobjexpected['lat']
+        assert pytest.approx(coords[1])== graphobjexpected['long']
 
 
 def test_location_sequence(graphobj):

@@ -8,10 +8,6 @@ import requests
 import yaml
 import os
 
-# https://www.python.org/dev/peps/pep-0485/#proposed-implementation
-def isclose(a, b, rel_tol=1e-09, abs_tol=0.0):
-    return abs(a - b) <= max(rel_tol * max(abs(a), abs(b)), abs_tol)
-
 @pytest.fixture(scope="module", params=['New York','Fake'])
 def places(request):
     with open(os.path.join(os.path.dirname(__file__), 'fixtures', 'places.yaml')) as placesfixtures:

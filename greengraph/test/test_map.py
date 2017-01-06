@@ -55,4 +55,6 @@ def test_count_green(mapreturn,places):
 
 def test_show_green(mapreturn,places):
     expectedgreen = file(os.path.join(os.path.dirname(__file__),'fixtures',places['greenimage']),'rb').read()
-    assert mapreturn.show_green() == expectedgreen
+    with patch.object(mapreturn,'green') as MockClass:
+        MockClass.return_value = np.array(places['green'])
+        assert mapreturn.show_green() == expectedgreen

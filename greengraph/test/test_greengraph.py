@@ -15,11 +15,11 @@ def isclose(a, b, rel_tol=1e-09, abs_tol=0.0):
 def graphobj():
     return Greengraph('New York', 'Chicago')
 
-@pytest.fixture(scope="module")
-def graphobjexpected():
+@pytest.fixture(scope="module", params=['New York','Fake'])
+def graphobjexpected(request):
     with open(os.path.join(os.path.dirname(__file__), 'fixtures', 'places.yaml')) as placesfixtures:
         placesfile = yaml.load(placesfixtures)
-        return placesfile['New York']
+        return placesfile[request.param]
 
 @pytest.fixture(scope="module")
 def geocodeexpected(graphobjexpected):

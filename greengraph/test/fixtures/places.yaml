@@ -19,6 +19,6 @@
     image: fake2x2.png
     green: [[True, True],[True,True]]
     countgreen: 4
-    greenRGB: [[[0,1,0],[0,1,0]],[[0,1,0],[0,1,0]]] #aall green
-    threshold: 1.0
+    greenRGB: [[[0,1,0],[0,1,0]],[[0,1,0],[0,1,0]]] #all green
+    threshold: 1.1
     greenimage: fake2x2green.png

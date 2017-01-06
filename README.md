@@ -12,6 +12,11 @@ The greengraph.py code is taken from the appendix of the
 , which in turn comes from
 [UCL Research Software Engineering course](https://github.com/UCL/rsd-engineeringcourse/blob/master/ch01data/110Capstone.ipynb)
 
+Requirements
+=========================
+
+This package runs/has been tested on on Python 2.7
+
 Installation Instructions
 =========================
 
